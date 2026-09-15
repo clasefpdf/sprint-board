@@ -46,3 +46,13 @@ function statusLabel(string $status): string
         'done' => 'Done',
     ][$status] ?? $status;
 }
+function fechaActual(bool $withTime): string
+{
+    if ($withTime == true) {
+        return date('d-m-Y H:i:s');
+    }
+    else {
+        return date('d-m-Y');
+    }
+
+}

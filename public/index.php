@@ -23,7 +23,7 @@ require __DIR__ . '/../includes/header.php';
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
         <p class="text-primary fw-semibold mb-1">PANELL DE TREBALL</p>
-        <h1>Hola, <?= h($user['name']) ?></h1>
+        <h1>Hola, <?= h($user['name']. " " .$user[ 'email']) ?></h1>
     </div>
     <a class="btn btn-primary" href="task-create.php">+ Nova tasca</a>
 </div>

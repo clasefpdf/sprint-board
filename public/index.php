@@ -25,6 +25,7 @@ require __DIR__ . '/../includes/header.php';
         <p class="text-primary fw-semibold mb-1">PANELL DE TREBALL</p>
         <h1>Hola, <?= h($user['name']. " " .$user[ 'email']) ?></h1>
     </div>
+    <a class="btn btn-primary" href="sprints.php">+ Sprints</a>
     <a class="btn btn-primary" href="task-create.php">+ Nova tasca</a>
 </div>
 

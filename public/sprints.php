@@ -8,13 +8,14 @@ require_once __DIR__ . '/../includes/functions.php';
 requireAuth();
 
 $data = loadData();
-$pageTitle = 'Equips';
+$pageTitle = 'Sprints';
 require __DIR__ . '/../includes/header.php';
 ?>
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <div>
+<div class="d-flex p-relative align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
         <p class="text-primary fw-semibold mb-1"></p>
         <h1>Sprints</h1>
+            <a class="btn btn-primary" href="sprint-create.php">+ Nou sprint</a>
     </div>
 </div>
 

@@ -7,10 +7,6 @@ require_once __DIR__ . '/../includes/functions.php';
 requireAuth();
 $data = loadData();
 
-// if (saveData($data))
-   // redirect("sprints.php");
-
-
 $errors = [];
 $values = [
     'name' => '',
@@ -27,8 +23,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $values['status'] = (string) ($_POST['status'] ?? '');
     $data = loadData();
 
+    // Validacions 
     if ($values['name'] === '') $errors[] = 'El nom és obligatori.';
     if (strlen($values['goal']) < 8) $errors[] = 'L’objectiu ha de tindre almenys 8 caràcters.';
+
+        $inici = DateTime::createFromFormat('Y-m-d', $values['start_date']);
+        $fi = DateTime::createFromFormat('Y-m-d', $values['end_date']);
+
+        if ($inici !== false && $fi !== false && $inici > $fi) {
+            $errors[] = 'La data de inici no pot ser posterior a la data de finalització.';
+        }
+
     if (!$errors) {
         $ids = array_column($data['sprints'], 'id');
         $data['sprints'][] = ['id' => $ids ? max($ids) + 1 : 1, 'name' => $values['name'], 'goal' => $values['goal'], 'start_date' => $values['start_date'], 'end_date' => $values['end_date'], 'status' => $values['status']];

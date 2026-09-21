@@ -30,7 +30,7 @@ require __DIR__ . '/../includes/header.php';
                     <p class="text-muted">
                         <?= h($sprint['start_date'] ?? '') ?> - <?= h($sprint['end_date'] ?? '') ?>
                     </p>
-                    <a class="btn btn-outline-primary" href="team.php?id=<?= $sprint['id'] ?>">
+                    <a class="btn btn-outline-primary" href="sprint.php?id=<?= $sprint['id'] ?>">
                         Veure fitxa
                     </a>
                     <span class="ms-2">Objectiu: <?= h($sprint['goal'] ?? '') ?></span>

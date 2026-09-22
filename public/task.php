@@ -65,6 +65,7 @@ require __DIR__ . '/../includes/header.php';
 <div class="d-flex justify-content-between">
     <div>
         <h1><?= h($task['title']) ?></h1>
+        <a class="btn btn-primary" href="task-edit.php?id=<?= $task['id'] ?>">Editar tasca</a>
         <p><?= h($task['description']) ?></p>
         <p class="text-muted">
             Estat: <?= h($task['status']) ?> · Equip: <?= h($task['team_name']) ?>

@@ -78,7 +78,7 @@
         {
             "id": 2,
             "title": "Dissenyar tauler",
-            "description": "Crear les tres columnes Kanban.",
+            "description": "Crear les tres columnes Kanban eric hola",
             "status": "in_progress",
             "team_id": 2,
             "user_id": 2,
@@ -87,7 +87,7 @@
         {
             "id": 3,
             "title": "Prova 1",
-            "description": "Prova 2",
+            "description": "Prova 67",
             "status": "in_progress",
             "user_id": 2,
             "sprint_id": 1,

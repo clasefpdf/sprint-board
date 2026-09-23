@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($candidate['email'] === $email) { $user = $candidate; break; }
     }
     if ($user && password_verify((string) ($_POST['password'] ?? ''), $user['password'])) {
-        session_regenerate_id(true); $_SESSION['user_id'] = $user['id']; redirect('index.php');
+        session_regenerate_id(true); $_SESSION['user_id'] = $user['id']; 
+        redirect('index.php');
     }
     $error = 'El correu o la contrasenya no són correctes.';
 }

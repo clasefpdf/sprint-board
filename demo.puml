@@ -1,0 +1,54 @@
+@startuml
+
+' ==========================================
+' DIAGRAMA ENTITAT-RELACIÓ
+' ==========================================
+
+hide methods
+hide stereotypes
+
+' ---------- ENTITATS ----------
+
+entity CLIENT {
+    * id : INTEGER <<PK>>
+    --
+    nom : VARCHAR(100)
+    email : VARCHAR(150)
+}
+
+entity COMANDA {
+    * id : INTEGER <<PK>>
+    --
+    data : DATE
+    client_id : INTEGER <<FK>>
+}
+
+entity PRODUCTE {
+    * id : INTEGER <<PK>>
+    --
+    nom : VARCHAR(100)
+    preu : DECIMAL(10,2)
+}
+
+entity LINIA_COMANDA {
+    * comanda_id : INTEGER <<PK, FK>>
+    * producte_id : INTEGER <<PK, FK>>
+    --
+    quantitat : INTEGER
+}
+
+' ---------- RELACIONS ----------
+
+CLIENT ||--o{ COMANDA : realitza
+
+COMANDA ||--|{ LINIA_COMANDA : conté
+
+PRODUCTE ||--o{ LINIA_COMANDA : apareix
+
+
+' ||	exactament 1
+' o|	0 o 1
+' |{	1 o molts
+' o{	0 o molts
+
+@enduml

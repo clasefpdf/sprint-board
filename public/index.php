@@ -9,6 +9,7 @@ requireAuth();
 
 $data = loadData();
 $user = currentUser();
+$lastTasks = $_SESSION['tasks'] ?? [];
 
 // Creem la variable index visits i li assignem el valor de la sessio indexVisits
 $indexVisits = ($_SESSION['indexVisits'] ?? 0) + 1;
@@ -61,6 +62,13 @@ require __DIR__ . '/../includes/header.php';
 </div>
 
 <a class="btn btn-outline-dark" href="board.php">Obrir tauler Kanban</a>
+<br>
 <p>Has visitat la pàgina <?= (int) $indexVisits ?> vegades.</p>
+<div >
+    <p>Últimes tasques visitades: <br></p>
+    <p> <?= 
+
+</div>
+
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>

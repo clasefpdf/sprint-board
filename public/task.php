@@ -11,6 +11,18 @@ $id = (int) ($_GET['id'] ?? 0);
 $data = loadData();
 $task = findRecord($data['tasks'], $id);
 
+// Mostrar les ultimes 3 tasqques visitades al index
+$_SESSION['tasks'] = $_SESSION['tasks'] ?? [];
+
+foreach ($_SESSION['tasks'] as $taskId) {
+    if ($taskId === $id) {
+        $_SESSION['tasks'] = array_diff($_SESSION['tasks'], [$taskId]);
+        break;
+    }
+}
+$_SESSION['tasks'][] = (int) ($_SESSION['task_id'] ?? 0);
+$_SESSION['task_id'] = $id;
+
 if (!$task) {
     http_response_code(404);
     exit('Tasca no trobada');
@@ -102,4 +114,6 @@ require __DIR__ . '/../includes/header.php';
     <button class="btn btn-primary">Afegir comentari</button>
 </form>
 
+
 <?php require __DIR__ . '/../includes/footer.php'; ?>
+

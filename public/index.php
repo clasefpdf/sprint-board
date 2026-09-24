@@ -9,11 +9,11 @@ requireAuth();
 
 $data = loadData();
 $user = currentUser();
-$lastTasks = $_SESSION['tasks'] ?? [];
 
 // Creem la variable index visits i li assignem el valor de la sessio indexVisits
 $indexVisits = ($_SESSION['indexVisits'] ?? 0) + 1;
 $_SESSION['indexVisits'] = $indexVisits;
+$tascas = array_splice($_SESSION['tasks'], 3);
 
 $sprint = activeSprint($data['sprints'] ?? []);
 $sprintTasks = array_filter(
@@ -64,11 +64,15 @@ require __DIR__ . '/../includes/header.php';
 <a class="btn btn-outline-dark" href="board.php">Obrir tauler Kanban</a>
 <br>
 <p>Has visitat la pàgina <?= (int) $indexVisits ?> vegades.</p>
-<div >
+<div>
     <p>Últimes tasques visitades: <br></p>
-    <p> <?= 
-
+    <p> 
+        <?php foreach ($_SESSION['tasks'] as $task): ?>
+            <?= $task; ?><br>
+        <?php endforeach; ?>
+    </p>
 </div>
+
 
 
 <?php require __DIR__ . '/../includes/footer.php'; ?>
